@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="config_parameter_partner_studio_email" model="ir.config_parameter">
+            <field name="key">partner.studio.email</field>
+            <field name="value"></field>
+        </record>
+    </data>
+</odoo>
