@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación - Studio Warning</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #714B67; /* Odoo purple */
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #444;
+            margin-top: 30px;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .code-block {
+            background-color: #f4f4f4;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #d63384;
+        }
+        .alert {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffecb5;
+            padding: 10px 15px;
+            margin: 15px 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Studio Warning</h1>
+        <p>Este módulo añade una capa de control y advertencia antes de acceder a la herramienta Odoo Studio. Su propósito es asegurar que los usuarios estén al tanto de los riesgos que implica modificar el sistema y notificar automáticamente al equipo de soporte o a los responsables (Partners) cuando un usuario decide utilizarla.</p>
+
+        <h2>¿Qué hace este módulo?</h2>
+        <ul>
+            <li><strong>Aviso de Responsabilidad:</strong> Cuando un usuario hace clic en el icono de Odoo Studio, se bloquea el acceso directo y se muestra una ventana emergente de confirmación.</li>
+            <li><strong>Aceptación de Riesgos:</strong> El usuario debe leer un mensaje de advertencia donde se le informa que asume la responsabilidad de los cambios y que no se brindará soporte por errores derivados de su uso.</li>
+            <li><strong>Notificación por Correo:</strong> Si el usuario acepta los términos y decide continuar, el módulo envía automáticamente un correo electrónico de alerta a una dirección preconfigurada, registrando el nombre de usuario y dejando constancia de la acción.</li>
+        </ul>
+
+        <h2>Configuración</h2>
+        <p>Para que el módulo envíe los correos de alerta correctamente, es indispensable configurar la dirección de destino siguiendo estos pasos:</p>
+        
+        <ol>
+            <li>Inicia sesión en Odoo con un usuario que tenga permisos de Administrador.</li>
+            <li>Activa el <strong>Modo Desarrollador</strong> (puedes hacerlo desde los Ajustes generales de Odoo).</li>
+            <li>Dirígete al menú <strong>Ajustes > Técnico > Parámetros del sistema</strong> (ubicado en la sección de Parámetros).</li>
+            <li>Utiliza la barra de búsqueda para encontrar la clave: <span class="code-block">partner.studio.email</span></li>
+            <li>Edita el registro y en el campo <strong>Valor</strong>, ingresa la dirección de correo electrónico a la que deseas que lleguen las alertas (por ejemplo: <em>soporte@miempresa.com</em>).</li>
+            <li>Guarda los cambios.</li>
+        </ol>
+
+        <div class="alert">
+            <strong>Nota:</strong> Si el parámetro no se encuentra en la lista, puedes crearlo manualmente pulsando el botón "Nuevo", colocando <span class="code-block">partner.studio.email</span> como clave y tu correo como valor.
+        </div>
+
+        <h2>Autores</h2>
+        <p>Francisco Sulé, Witdata</p>
+    </div>
+
+</body>
+</html>
