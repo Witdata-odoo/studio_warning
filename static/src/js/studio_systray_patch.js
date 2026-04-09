@@ -4,7 +4,7 @@ import { patch } from "@web/core/utils/patch";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { systrayItem } from "@web_studio/systray_item/systray_item";
 
-patch(systrayItem.Component.prototype, "partner_studio_warning.systray_patch", {
+patch(systrayItem.Component.prototype, {
     _onClick() {
         if (this.isLoading) {
             return;
@@ -15,6 +15,7 @@ patch(systrayItem.Component.prototype, "partner_studio_warning.systray_patch", {
             body: "Al usar Odoo Studio asumes toda la responsabilidad de las modificaciones en el sistema. No se aceptarán tickets de soporte por errores derivados de su uso o futuras consultas sobre la herramienta. Si aceptas, se enviará una notificación a partner.",
             confirmLabel: "Acepto los riesgos, abrir Studio",
             cancelLabel: "Cancelar",
+            confirmClass: "btn-danger", // <-- Esto pinta el botón de rojo
             confirm: async () => {
                 try {
                     // 1. Notificar a partner llamando al modelo de Python
